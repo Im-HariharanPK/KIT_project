@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h1 Employees
+  hr
+  // Add Employee Form
+  button.btn.btn-primary(data-toggle='modal', data-target='#addEmployeeModal') Add Employee
+  hr
+
+  // Employee Table
+  table#employeesTable.table.table-striped.table-bordered
+    thead
+      tr
+        th ID
+        th Name
+        th Email
+        th Active
+        th Actions
+    tbody
+      each employee in employees
+        tr
+          td= employee.id
+          td= employee.name
+          td= employee.email
+          td= employee.active ? 'Yes' : 'No'
+          td
+            a.btn.btn-primary(href=`/employees/${employee.id}/edit`) Edit
+            a.btn.btn-danger(href=`/employees/${employee.id}/delete`) Delete
+
+  // Add Employee Modal
+  #addEmployeeModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='addEmployeeModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5.modal-title#addEmployeeModalLabel Add Employee
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          form(id='addEmployeeForm', method='POST', action='/employees')
+            .form-group
+              label(for='name') Name
+              input#name.form-control(name='name', type='text', required)
+            .form-group
+              label(for='email') Email
+              input#email.form-control(name='email', type='email', required)
+            .form-group
+              label(for='active') Active
+              select#active.form-control(name='active', required)
+                option(value='true') Yes
+                option(value='false') No
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+          button.btn.btn-primary(type='submit') Save

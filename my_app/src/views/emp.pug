@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Employees
+  table#employeesTable.table.table-striped.table-bordered
+    thead
+      tr
+        th ID
+        th Name
+        th Email
+        th Active
+        th Actions
+    tbody
+      each employee in employees
+        tr
+          td= employee.id
+          td= employee.name
+          td= employee.email
+          td= employee.active ? 'Yes' : 'No'
+          td
+            a.btn.btn-primary(href=`/employees/${employee.id}/edit`) Edit
+            a.btn.btn-danger(href=`/employees/${employee.id}/delete`) Delete

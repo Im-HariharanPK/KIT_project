@@ -1,0 +1,40 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Asset Tracking System
+    // Bootstrap CSS
+    link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css', rel='stylesheet')
+    // DataTables CSS
+    link(href='https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css', rel='stylesheet')
+    // Custom CSS
+    link(href='/css/style.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container
+        a.navbar-brand(href='#') Asset Tracking System
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarNav
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link(href='/employees') Employees
+            li.nav-item
+              a.nav-link(href='/assets') Assets
+            li.nav-item
+              a.nav-link(href='/categories') Asset Categories
+            li.nav-item
+              a.nav-link(href='/stock') Stock View
+    .container
+      block content
+
+    // Bootstrap JS and dependencies
+    script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+    // DataTables JS
+    script(src='https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js')
+    script(src='https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js')
+    // Custom JS
+    //- script(src='/js/main.js')
