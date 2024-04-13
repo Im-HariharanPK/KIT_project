@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const database = require('./database');
+// const database = require('./database');
 
 const app = express();
 
@@ -24,6 +24,6 @@ app.use('/stock', stockViewRoutes);
 
 // Start server
 const PORT = process.env.PORT || 4080;
-app.listen(4080, () => {
+app.listen(PORT, () => {
   console.log(`Server running on port 4080`);
 });
